@@ -1,0 +1,45 @@
+body {
+    background-color: aliceblue;
+}
+.tasks {
+    width: 50%;
+}
+.tasks ul {
+    margin-bottom: 20px;
+    padding: 0;
+}
+.tasks ul li,input {
+    list-style: none;
+    font-size: 1.4rem;
+    padding: 5px;
+    border: solid 1px gray;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+    transition: all linaer .3s;
+}
+.tasks ul li:hover {
+    background-color: gray;
+    color: aliceblue;
+    transition: all linaer .3s;
+}
+.tasks ul li.done {
+    text-decoration: line-through;
+}
+input {
+    cursor: initial;
+}
+button {
+    font-size: 1.4rem;
+    padding: 5px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    background-color: blueviolet;
+    color: white;
+    border: none;
+}
+
+.text-danger {
+    color:red
+}

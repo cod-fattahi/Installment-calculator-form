@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>vuejs</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div id="app">
+        <h1>{{msg}}</h1>
+        <h1 :title="msg">{{title}}</h1>
+        <!-- <ul>
+            <li v-for="(name,i) in names" :key="i">{{i}} - {{name}}</li>
+        </ul> -->
+        <div class="tasks">
+            <ul>
+                <!-- <li v-for="(task,i) in tasks" v-text=" task.title"></li> -->
+
+                <li v-for="(task,i) in tasks" :class="{ done : task.done} " :key="i" @click="toggleDone()">{{task.title}}</li>
+            </ul>
+            <!-- <form @submit.prevent="addTask()"> -->
+            <form>
+
+                <input type="text" placeholder="type your task" v-model="newTaskInput">
+                
+                <button type="submit" v-on:click.prevent="addTask()">add task</button>
+            </form>
+
+        </div>
+    </div>
+    <script src="vue.global.js"></script>
+    <script>
+        Vue.createApp({
+            data(){
+                return {
+                    msg:'Hello Vue',
+                    names:['ali','hasan','reza','araman'],
+                    title:'todo list',
+                    tasks:[
+                        {
+                            title:'task one',
+                            done:true
+                        },
+                        {
+                            title:'task two',
+                            done:false
+                        },
+                        {
+                            title:'task three',
+                            done:false
+                        },
+                   
+                    ],
+                    newTaskInput:'',
+                }
+            },
+            methods:{
+                toggleDone(){
+
+                },
+                addTask(){
+                   
+                   var newTask = {
+                            title: this.newTaskInput ,
+                            completed:false
+                    }
+                    this.tasks.push(newTask)
+                    this.newTaskInput = ''
+                }
+            }
+        }).mount('#app')
+    </script>
+</body>
+</html>
